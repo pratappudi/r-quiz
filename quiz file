@@ -1,0 +1,278 @@
+> x <- c(17, 14, 4, 5, 13, 12, 10)
+> x
+[1] 17 14  4  5 13 12 10
+> x[x >= 11] <- 4
+> y <- x[x >= 11] <- 4
+> y
+[1] 4
+> z <- x[x >= 10] <- 4
+> z
+[1] 4
+> a <- x[x == 4] > 10
+> a
+[1] FALSE FALSE FALSE FALSE FALSE FALSE
+> a <= x[x > 10] <- 4
+Error in a <= x[x > 10] <- 4 : could not find function "<=<-"
+> a <- x[x > 10] <- 4
+> a
+[1] 4
+> a <- x[x == 10] <- 4
+> a
+[1] 4
+> a <- x[x > 4] <- 10
+> a
+[1] 10
+> a <- x[x > 10] == 10
+> a
+logical(0)
+> a <- x[x < 4] <- 10
+> a
+[1] 10
+> getwd()
+[1] "C:/Users/Pratap Kumar/OneDrive/Documents"
+> list.files()
+ [1] "desktop.ini"                     "hp.applications.package.appdata" "hp.system.package.metadata"      "My Bluetooth"                   
+ [5] "pratap's Notebook.url"           "quiz1_data"                      "R"                               "testdir"                        
+ [9] "Where are my files.lnk"          "YouCam"                         
+> setwd("R)
++ 
++ 
++ 
++ kl
++ lfglf,g
++ mvmm
++ setwd("R")
+Error: malformed raw string literal at line 8
+> setwd("R")
+> list.files()
+[1] "datasciencecoursera"             "Dropbox"                         "functions"                       "Programming with R"             
+[5] "Rmark down"                      "Temporary_addto_version_control" "testing"                         "win-library"                    
+> setwd("~Documents/quiz1_data")
+Error in setwd("~Documents/quiz1_data") : cannot change working directory
+> setwd("C:/Users/Pratap Kumar/OneDrive/Documents")
+> list.files()
+ [1] "desktop.ini"                     "hp.applications.package.appdata" "hp.system.package.metadata"      "My Bluetooth"                   
+ [5] "pratap's Notebook.url"           "quiz1_data"                      "R"                               "testdir"                        
+ [9] "Where are my files.lnk"          "YouCam"                         
+> setwd("quiz1_data")
+> list.files()
+[1] "hw1_data.csv"
+> read_csv("hw1_data.csv")
+Error in read_csv("hw1_data.csv") : could not find function "read_csv"
+> ?files()
+starting httpd help server ... done
+> library(readr)
+> read_csv("hw1_data.csv")
+Parsed with column specification:
+cols(
+  Ozone = col_double(),
+  Solar.R = col_double(),
+  Wind = col_double(),
+  Temp = col_double(),
+  Month = col_double(),
+  Day = col_double()
+)
+# A tibble: 153 x 6
+   Ozone Solar.R  Wind  Temp Month   Day
+   <dbl>   <dbl> <dbl> <dbl> <dbl> <dbl>
+ 1    41     190   7.4    67     5     1
+ 2    36     118   8      72     5     2
+ 3    12     149  12.6    74     5     3
+ 4    18     313  11.5    62     5     4
+ 5    NA      NA  14.3    56     5     5
+ 6    28      NA  14.9    66     5     6
+ 7    23     299   8.6    65     5     7
+ 8    19      99  13.8    59     5     8
+ 9     8      19  20.1    61     5     9
+10    NA     194   8.6    69     5    10
+# ... with 143 more rows
+> x <- read_csv("hw1_data.csv")
+Parsed with column specification:
+cols(
+  Ozone = col_double(),
+  Solar.R = col_double(),
+  Wind = col_double(),
+  Temp = col_double(),
+  Month = col_double(),
+  Day = col_double()
+)
+> x[, 2]
+# A tibble: 153 x 1
+   Solar.R
+     <dbl>
+ 1     190
+ 2     118
+ 3     149
+ 4     313
+ 5      NA
+ 6      NA
+ 7     299
+ 8      99
+ 9      19
+10     194
+# ... with 143 more rows
+> x[2, ]
+# A tibble: 1 x 6
+  Ozone Solar.R  Wind  Temp Month   Day
+  <dbl>   <dbl> <dbl> <dbl> <dbl> <dbl>
+1    36     118     8    72     5     2
+> x[1, 2]
+# A tibble: 1 x 1
+  Solar.R
+    <dbl>
+1     190
+> x[, 1:2]
+# A tibble: 153 x 2
+   Ozone Solar.R
+   <dbl>   <dbl>
+ 1    41     190
+ 2    36     118
+ 3    12     149
+ 4    18     313
+ 5    NA      NA
+ 6    28      NA
+ 7    23     299
+ 8    19      99
+ 9     8      19
+10    NA     194
+# ... with 143 more rows
+> x[1:2, ]
+# A tibble: 2 x 6
+  Ozone Solar.R  Wind  Temp Month   Day
+  <dbl>   <dbl> <dbl> <dbl> <dbl> <dbl>
+1    41     190   7.4    67     5     1
+2    36     118   8      72     5     2
+> sum(x)
+[1] NA
+> sum("x")
+Error in sum("x") : invalid 'type' (character) of argument
+> length("x")
+[1] 1
+> sum("hw1_data.csv")
+Error in sum("hw1_data.csv") : invalid 'type' (character) of argument
+> sum(completecases("hw1_data.csv"))
+Error in completecases("hw1_data.csv") : 
+  could not find function "completecases"
+> sum(complete.cases("hw1_data.csv"))
+[1] 1
+> dim("hw1_data.csv")
+NULL
+> dim(x)
+[1] 153   6
+> x[153:152, ]
+# A tibble: 2 x 6
+  Ozone Solar.R  Wind  Temp Month   Day
+  <dbl>   <dbl> <dbl> <dbl> <dbl> <dbl>
+1    20     223  11.5    68     9    30
+2    18     131   8      76     9    29
+> x[[47]]
+Error: Can't subset columns that don't exist.
+x Location 47 doesn't exist.
+i There are only 6 columns.
+Run `rlang::last_error()` to see where the error occurred.
+> x[1,47]
+Error: Can't subset columns that don't exist.
+x Location 47 doesn't exist.
+i There are only 6 columns.
+Run `rlang::last_error()` to see where the error occurred.
+> x[,47]
+Error: Can't subset columns that don't exist.
+x Location 47 doesn't exist.
+i There are only 6 columns.
+Run `rlang::last_error()` to see where the error occurred.
+> x[47, ]
+# A tibble: 1 x 6
+  Ozone Solar.R  Wind  Temp Month   Day
+  <dbl>   <dbl> <dbl> <dbl> <dbl> <dbl>
+1    21     191  14.9    77     6    16
+> x[47, 1]
+# A tibble: 1 x 1
+  Ozone
+  <dbl>
+1    21
+> sum(!complete.cases("hw1_data.csv"))
+[1] 0
+> sum(!complete.cases(x[,1]))
+[1] 37
+> mean(complete.cases(x[,1]))
+[1] 0.7581699
+> mean(complete.cases(x[,1]))
+[1] 0.7581699
+> mean(!complete.cases(x[,1]))
+[1] 0.2418301
+> sum(is.na(x[,1])
++ mean(!complete.cases(x[,1]))
+Error: unexpected symbol in:
+"sum(is.na(x[,1])
+mean"
+> sum(is.na(x)
++ 
++ sum(is.na(x)
+Error: unexpected symbol in:
+"
+sum"
+> sum(is.na(x$ozone))
+[1] 0
+Warning message:
+Unknown or uninitialised column: `ozone`. 
+> mean(complete.cases(x[,1])
++ mean(complete.cases(x[,1])
+Error: unexpected symbol in:
+"mean(complete.cases(x[,1])
+mean"
+> mean(complete.cases(x[,1]))
+[1] 0.7581699
+> mean(complete.cases(x[1, ]))
+[1] 1
+> mean(complete.cases(x[1,1 ]))
+[1] 1
+> mean(complete.cases(x[153,1 ]))
+[1] 1
+> hw1 = read_csv("hw1_data.csv")
+Parsed with column specification:
+cols(
+  Ozone = col_double(),
+  Solar.R = col_double(),
+  Wind = col_double(),
+  Temp = col_double(),
+  Month = col_double(),
+  Day = col_double()
+)
+> sub = subset(hw1, !is.na(Ozone), select = Ozone)
+> apply(sub, 2, mean)
+   Ozone 
+42.12931 
+> sub = subset(hw1, Ozone > 31 & Temp > 90 , select = Solar.R)
+> apply(sub, 2, mean)
+Solar.R 
+  212.8 
+> sub = subset(hw1, Month == 6 , select = Temp)
+> apply(sub, 2, mean)
+Temp 
+79.1 
+> sub = subset(hw1, Month == 5 , select = Ozone)
+> apply(sub, 2, mean)
+Ozone 
+   NA 
+> sub = subset(hw1, Month == 5 $ !is.na(Ozone) , select = Ozone)
+Error: unexpected '!' in "sub = subset(hw1, Month == 5 $ !"
+> sub = subset(hw1, Month == 5 & !is.na(Ozone) , select = Ozone)
+> apply(sub, 2, mean)
+   Ozone 
+23.61538 
+> apply(sub, 2, max)
+Ozone 
+  115 
+> x <- 4
+> class(x)
+[1] "numeric"
+> x <- c(1,3, 5)
+>  y <- c(3, 2, 10)
+> rbind(x, y)
+  [,1] [,2] [,3]
+x    1    3    5
+y    3    2   10
+> x <- 1:4
+> y <- 2
+> x+y
+[1] 3 4 5 6
